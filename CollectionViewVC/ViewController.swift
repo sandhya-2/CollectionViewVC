@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -19,6 +21,8 @@ class ViewController: UIViewController {
         button.center = view.center
         button.setTitle("Show Collection", for: .normal)
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        
+        
         
     }
     
@@ -33,12 +37,12 @@ class ViewController: UIViewController {
         
         // CollectionView Controller
        let vc = GridCollectionViewController(collectionViewLayout: layout)
-        vc.title = "Grid Controller"
-        vc.navigationItem.largeTitleDisplayMode = .always
+//        vc.title = "Grid Controller"
+//        vc.navigationItem.largeTitleDisplayMode = .always
         
         // Navigation VC
         let navVC = UINavigationController(rootViewController: vc)
-        navVC.navigationBar.prefersLargeTitles = true
+//        navVC.navigationBar.prefersLargeTitles = true
         
         // Presenting View Controller
         present(navVC, animated: true)

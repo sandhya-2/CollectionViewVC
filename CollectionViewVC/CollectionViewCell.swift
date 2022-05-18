@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Foundation
 
 class CollectionViewCell: UICollectionViewCell {
     static let identifier = "Cell"
-    
-    private let imageView: UIImageView = {
+    var viewModel = DataViewModel()
+    var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -22,8 +23,9 @@ class CollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
+        contentView.clipsToBounds = true
         
-        let images = [
+        var images = [
         UIImage(named: "images"),
         UIImage(named: "images1"),
         UIImage(named: "images2"),
@@ -37,7 +39,16 @@ class CollectionViewCell: UICollectionViewCell {
         UIImage(named: "images11"),
         UIImage(named: "images12")
         ].compactMap({$0})
-        imageView.image = images.randomElement()
+        
+        
+        
+        for i in 0..<images.count
+        {
+            imageView.image = (images[i])
+            print("index: \(i)")
+        }
+        
+//        imageView.image = images.randomElement()
         
     }
     
